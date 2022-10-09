@@ -1,0 +1,54 @@
+.reserved {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    overflow: hidden;
+    z-index: 10;
+    top: 100px;
+}
+
+.reserved div {
+    margin: 10px;
+    width: 80vw;
+}
+
+.reserved a {
+    margin-top: 10px;
+}
+
+.txton {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #9CA3AF;
+}
+
+.reserved select {
+    margin-left: 10px;
+    width: 140px;
+    height: 40px;
+}
+
+.filter {
+    width: 80vw;
+}
+
+.reserved img {
+    width: 350px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+html,
+body {
+    background-image: url('../img/Soccer_Cube_Profile2.png');
+    background-repeat: no-repeat;
+    /* background-size: auto; */
+    /* object-fit: cover; */
+    /* width: 100vw; */
+}
