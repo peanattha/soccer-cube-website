@@ -18,12 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
 //User//
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/home', [NavController::class,"showHome"])->name("home");
     Route::get('/stadiums', [NavController::class,"showStadiums"])->name("stadiums");
     Route::get('/reserved', [NavController::class,"showReserved"])->name("reserved");
@@ -39,7 +39,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 });
 
 //Admin//
-Route::middleware(['auth:sanctum', 'verified','adminAuth'])->group(function () {
+Route::middleware(['auth:sanctum','adminAuth'])->group(function () {
     Route::get('/adminDashboard',[NavController::class,"adminDashboard"])->name('adminDashboard');
     Route::get('/adminStadium',[NavController::class,"showAdminStadiums"])->name('stadiumsAdmin');
     Route::get('/editStadium/{id}',[NavController::class,"showEditStadium"])->name('showEditStadium');

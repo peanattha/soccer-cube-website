@@ -67,7 +67,7 @@
 
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="tel" value="{{ __('Tel') }}" />
-            <x-jet-input id="tel" type="tel" pattern="[0-9]{10}" placeholder="099xxxxxxx" class="mt-1 block w-full" wire:model.defer="state.tel"
+            <x-jet-input id="tel" type="tel" pattern="0[0-9]{9}" placeholder="099xxxxxxx" class="mt-1 block w-full" wire:model.defer="state.tel"
                 autocomplete="tel" />
             <x-jet-input-error for="tel" class="mt-2" />
         </div>

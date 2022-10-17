@@ -108,90 +108,96 @@
                         <x-jet-section-border />
                     @endif
 
-                    <x-jet-action-section>
-                        <x-slot name="title">
-                            {{ __('Book Bank') }}
-                        </x-slot>
+                    @if (Auth::user()->is_admin == 1)
+                        <x-jet-action-section>
+                            <x-slot name="title">
+                                {{ __('Book Bank') }}
+                            </x-slot>
 
-                        <x-slot name="description">
-                            {{ __('Book Bank Detail.') }}
-                        </x-slot>
+                            <x-slot name="description">
+                                {{ __('Book Bank Detail.') }}
+                            </x-slot>
 
-                        <x-slot name="content">
-                            <div class="max-w-xl text-sm text-gray-600">
-                                {{ __('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo iste in, reprehenderit beatae maiores nobis quo numquam adipisci asperiores? Vero maiores, rem illo tempora temporibus necessitatibus facilis optio ipsam soluta?.') }}
-                            </div>
-                            <div class="mt-5">
-                                @if ($banks->count() == 0)
-                                    <form action="{{ route('bank') }}" method="POST">
-                                        @csrf
-                                        <x-jet-label for="bankid" value="{{ __('Bank ID') }}" />
-                                        <x-jet-input id="bankid" name="bankid" type="text" class="mt-1 block w-full"
-                                            autocomplete="bankid" />
-
-                                        <x-jet-label for="firstname" value="{{ __('Firstname') }}" />
-                                        <x-jet-input id="firstname" name="firstname" type="text" class="mt-1 block w-full"
-                                            autocomplete="firstname" />
-
-                                        <x-jet-label for="lastname" value="{{ __('Lastname') }}" />
-                                        <x-jet-input id="lastname" name="lastname" type="text" class="mt-1 block w-full"
-                                            autocomplete="lastname" />
-
-                                        <x-jet-label for="bankname" value="{{ __('Bank Name') }}" />
-                                        <select id="bankname" name="bankname"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
-                                            <option selected disabled hidden>Please select Bank</option>
-                                            @foreach ($bank_details as $bank_detail)
-                                                <option value="{{ $bank_detail->id }}">
-                                                    {{ $bank_detail->bank_name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <br>
-
-                                        <x-jet-button>
-                                            {{ __('Save') }}
-                                        </x-jet-button>
-                                    </form>
-                                @else
-                                    @foreach ($banks as $bank)
-                                        <form action="{{ route('update_bank', ['id' => $bank->id]) }}" method="POST">
+                            <x-slot name="content">
+                                <div class="max-w-xl text-sm text-gray-600">
+                                    {{ __('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo iste in, reprehenderit beatae maiores nobis quo numquam adipisci asperiores? Vero maiores, rem illo tempora temporibus necessitatibus facilis optio ipsam soluta?.') }}
+                                </div>
+                                <div class="mt-5">
+                                    @if ($banks->count() == 0)
+                                        <form action="{{ route('bank') }}" method="POST">
                                             @csrf
                                             <x-jet-label for="bankid" value="{{ __('Bank ID') }}" />
-                                            <x-jet-input id="bankid" name="bankid" type="text" class="mt-1 block w-full"
-                                                autocomplete="bankid" value="{{ $bank->account_number }}" />
+                                            <x-jet-input id="bankid" name="bankid" type="text"
+                                                class="mt-1 block w-full" autocomplete="bankid" />
 
                                             <x-jet-label for="firstname" value="{{ __('Firstname') }}" />
                                             <x-jet-input id="firstname" name="firstname" type="text"
-                                                class="mt-1 block w-full" autocomplete="firstname"
-                                                value="{{ $bank->firstname }}" />
+                                                class="mt-1 block w-full" autocomplete="firstname" />
 
                                             <x-jet-label for="lastname" value="{{ __('Lastname') }}" />
-                                            <x-jet-input id="lastname" name="lastname" type="text" class="mt-1 block w-full"
-                                                autocomplete="lastname" value="{{ $bank->lastname }}" />
+                                            <x-jet-input id="lastname" name="lastname" type="text"
+                                                class="mt-1 block w-full" autocomplete="lastname" />
 
                                             <x-jet-label for="bankname" value="{{ __('Bank Name') }}" />
                                             <select id="bankname" name="bankname"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
-                                                <option value="{{ $bank->bank_detail->id }}" selected hidden>
-                                                    {{ $bank->bank_detail->bank_name }}</option>
+                                                <option selected disabled hidden>Please select Bank</option>
                                                 @foreach ($bank_details as $bank_detail)
-                                                    @if ($bank->bank_detail_id != $bank_detail->id)
-                                                        <option value="{{ $bank_detail->id }}">
-                                                            {{ $bank_detail->bank_name }}</option>
-                                                    @endif
+                                                    <option value="{{ $bank_detail->id }}">
+                                                        {{ $bank_detail->bank_name }}</option>
                                                 @endforeach
                                             </select>
                                             <br>
+
                                             <x-jet-button>
                                                 {{ __('Save') }}
                                             </x-jet-button>
-                                    @endforeach
-                                @endif
-                            </div>
-                        </x-slot>
-                    </x-jet-action-section>
+                                        </form>
+                                    @else
+                                        @foreach ($banks as $bank)
+                                            <form action="{{ route('update_bank', ['id' => $bank->id]) }}" method="POST">
+                                                @csrf
+                                                <x-jet-label for="bankid" value="{{ __('Bank ID') }}" />
+                                                <x-jet-input id="bankid" name="bankid" type="text"
+                                                    class="mt-1 block w-full" autocomplete="bankid"
+                                                    value="{{ $bank->account_number }}" />
 
-                    <x-jet-section-border />
+                                                <x-jet-label for="firstname" value="{{ __('Firstname') }}" />
+                                                <x-jet-input id="firstname" name="firstname" type="text"
+                                                    class="mt-1 block w-full" autocomplete="firstname"
+                                                    value="{{ $bank->firstname }}" />
+
+                                                <x-jet-label for="lastname" value="{{ __('Lastname') }}" />
+                                                <x-jet-input id="lastname" name="lastname" type="text"
+                                                    class="mt-1 block w-full" autocomplete="lastname"
+                                                    value="{{ $bank->lastname }}" />
+
+                                                <x-jet-label for="bankname" value="{{ __('Bank Name') }}" />
+                                                <select id="bankname" name="bankname"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                                                    <option value="{{ $bank->bank_detail->id }}" selected hidden>
+                                                        {{ $bank->bank_detail->bank_name }}</option>
+                                                    @foreach ($bank_details as $bank_detail)
+                                                        @if ($bank->bank_detail_id != $bank_detail->id)
+                                                            <option value="{{ $bank_detail->id }}">
+                                                                {{ $bank_detail->bank_name }}</option>
+                                                        @endif
+                                                    @endforeach
+                                                </select>
+                                                <br>
+                                                <x-jet-button>
+                                                    {{ __('Save') }}
+                                                </x-jet-button>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </x-slot>
+                        </x-jet-action-section>
+                        <x-jet-section-border />
+                    @endif
+
+
+
 
                     <x-jet-action-section>
                         <x-slot name="title">

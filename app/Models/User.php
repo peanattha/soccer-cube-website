@@ -11,7 +11,9 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements MustVerifyEmail
+// implements MustVerifyEmail
+
+class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;

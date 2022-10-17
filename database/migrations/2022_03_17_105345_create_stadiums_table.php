@@ -19,18 +19,18 @@ class CreateStadiumsTable extends Migration
             $table->string('stadium_name');
             $table->float('stadium_price');
             $table->string('stadium_detail');
-            $table->char('del',1);
+            $table->char('del',1)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
 
         DB::statement("ALTER TABLE stadiums ADD stadium_img MEDIUMBLOB");
 
-        DB::insert('insert into stadiums (id, stadium_name,stadium_price,stadium_detail)
-        values (?, ?, ?, ?)', [1, 'Stadium 1 (INDOOR)',1000,'Soccer Cube สนามฟุตบอลหญ้าเทียมให้เช่า ในร่ม และกลางแจ้ง กังสดาล หลังวัดป่าอดุลยาราม ใกล้มหาวิทยาลัยขอนแก่น ตำบลในเมือง อำเภอเมืองขอนแก่น ขอนแก่น 40000']);
+        DB::insert('insert into stadiums (id, stadium_name,stadium_price,stadium_detail,del)
+        values (?, ?, ?, ? ,?)', [1, 'Stadium 1 (INDOOR)',1000,'Soccer Cube สนามฟุตบอลหญ้าเทียมให้เช่า ในร่ม และกลางแจ้ง กังสดาล หลังวัดป่าอดุลยาราม ใกล้มหาวิทยาลัยขอนแก่น ตำบลในเมือง อำเภอเมืองขอนแก่น ขอนแก่น 40000',NULL]);
 
-        DB::insert('insert into stadiums (id, stadium_name,stadium_price,stadium_detail)
-        values (?, ?, ?, ?)', [2, 'Stadium 2 (OUTDOOR)',800,'Soccer Cube สนามฟุตบอลหญ้าเทียมให้เช่า ในร่ม และกลางแจ้ง กังสดาล หลังวัดป่าอดุลยาราม ใกล้มหาวิทยาลัยขอนแก่น ตำบลในเมือง อำเภอเมืองขอนแก่น ขอนแก่น 40000']);
+        DB::insert('insert into stadiums (id, stadium_name,stadium_price,stadium_detail,del)
+        values (?, ?, ?, ? ,?)', [2, 'Stadium 2 (OUTDOOR)',800,'Soccer Cube สนามฟุตบอลหญ้าเทียมให้เช่า ในร่ม และกลางแจ้ง กังสดาล หลังวัดป่าอดุลยาราม ใกล้มหาวิทยาลัยขอนแก่น ตำบลในเมือง อำเภอเมืองขอนแก่น ขอนแก่น 40000',NULL]);
     }
 
     /**
