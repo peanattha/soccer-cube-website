@@ -13,7 +13,7 @@
             <p class="txton">ไม่มีรายการยกเลิกการจอง</p>
         @else
             @foreach ($cancel_reserves as $cancel_reserve)
-                <div class="bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex flex-row bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="p-5">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                             {{ $cancel_reserve->stadium->stadium_name }}</h5>
@@ -56,6 +56,10 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </a>
+                    </div>
+                    <div>
+                        <img class="rounded-lg m-0" style="height: 300px"
+                            src="data:image/png;base64,{{ chunk_split(base64_encode($cancel_reserve->slip_img)) }}" alt="">
                     </div>
                 </div>
             @endforeach

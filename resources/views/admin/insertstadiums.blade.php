@@ -15,24 +15,24 @@
             @csrf
             <div class="mb-6">
                 <label for="base-input" class="block mb-2 text-sm font-medium text-white ">Name Stadium</label>
-                <input type="text" id="base-input" name="name"
+                <input type="text" id="base-input" name="name" required
                     class="bg-gray-50 border border-gray-300 text-sm rounded-lg  block w-full p-2.5">
             </div>
             <div class="mb-6">
                 <label for="base-input" class="block mb-2 text-sm font-medium text-white ">Price</label>
-                <input type="text" id="base-input" name="price" pattern="[0-9]{1,}"
+                <input type="text" id="base-input" name="price" pattern="[0-9]{1,}" required
                     class="bg-gray-50 border border-gray-300 text-sm rounded-lg  block w-full p-2.5">
             </div>
             <div class="mb-6">
                 <label for="message" class="block mb-2 text-sm font-medium text-white ">Stadium Details</label>
-                <textarea id="message" rows="4" name="detail"
+                <textarea id="message" rows="4" name="detail" required
                     class="bg-gray-50 border border-gray-300 text-sm rounded-lg  block w-full p-2.5"
                     placeholder="Stadium Detail..."></textarea>
             </div>
             <div>
                 <label class="block mb-2 text-sm font-medium text-white" for="user_avatar">Upload
                     Image</label>
-                <input
+                <input required
                     class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                     aria-describedby="user_avatar_help" id="user_avatar" name="img" type="file">
             </div>
