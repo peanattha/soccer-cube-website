@@ -2,9 +2,7 @@
 
 @section('title', 'Reserve Admin')
 
-<link rel="stylesheet" href="./css/style.css">
 <link type="text/css" rel="stylesheet" href="../css/reserved.css">
-<script src="../js/nav.js"></script>
 <link href="/css/app.css" rel="stylesheet">
 
 @section('content')
@@ -13,26 +11,26 @@
             <p class="txton">ไม่มีรายการการจอง</p>
         @else
             @foreach ($reserves as $reserve)
-                <div class="flex flex-row bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex flex-row bg-white rounded-lg border border-gray-200 shadow-md ">
                     <div class="p-5">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
                             {{ $reserve->stadium->stadium_name }}</h5>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">ชื่อลูกค้า :
+                        <p class="mb-3 font-normal text-gray-700 ">ชื่อลูกค้า :
                             {{ $reserve->user->firstname }} {{ $reserve->user->lastname }}</p>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">ราคา :
+                        <p class="mb-3 font-normal text-gray-700 ">ราคา :
                             {{ $reserve->total_price_discount }}
                             บาท
                         </p>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">วันที่จอง :
+                        <p class="mb-3 font-normal text-gray-700 ">วันที่จอง :
                             {{ $reserve->reserve_date }}
                         </p>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">เวลา :
+                        <p class="mb-3 font-normal text-gray-700 ">เวลา :
                             {{ $reserve->time_start }}น. -
                             {{ $reserve->time_end }}น.</p>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">สถานะการจ่ายเงิน :
+                        <p class="mb-3 font-normal text-gray-700 ">สถานะการจ่ายเงิน :
                             {{ $reserve->payment->payment_status }}</p>
                         <a href="{{ route('confirmReserve', ['id' => $reserve->id]) }}" onclick="return confirm('Are you sure you want to confirmed reserve ?')"
-                            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:bg-green-800">
+                            class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:ring-green-300">
                             Confirmed Reserve
                             <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">

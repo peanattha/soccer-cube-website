@@ -1,6 +1,9 @@
-@extends('layouts.master')
+@extends('layouts.layout')
 
 @section('title', 'Login')
+
+@section('login', 'active')
+
 <link type="text/css" rel="stylesheet" href="../css/style.css">
 <link type="text/css" rel="stylesheet" href="../css/login.css">
 <link href="/css/app.css" rel="stylesheet">
@@ -10,7 +13,7 @@
 @section('content')
     <div class="text-login">
         <h3>Scooer Cube Login</h3>
-        <div class="container">
+        <div class="">
             <x-guest-layout>
                 <x-jet-validation-errors class="mb-4" />
                 @if (session('status'))
@@ -24,8 +27,8 @@
 
                     <div>
                         <label for="emailUsername">Email</label>
-                        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                            placeholder="Email" required autofocus />
+                        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email"
+                            :value="old('email')" placeholder="Email" required autofocus />
                     </div>
 
                     <div class="mt-4">

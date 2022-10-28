@@ -1,16 +1,17 @@
-@extends('layouts.master')
+@extends('layouts.layout')
 
 @section('title', 'Register')
+
+@section('register', 'active')
+
 <link type="text/css" rel="stylesheet" href="../css/style.css">
 <link type="text/css" rel="stylesheet" href="../css/login.css">
 <link href="/css/app.css" rel="stylesheet">
 
-@section('srcImg', './img/Soccer_Cube_1.png')
-
 @section('content')
     <div class="text-login">
         <h3>Scooer Cube Register </h3>
-        <div class="container">
+        <div class="">
             <x-guest-layout>
                 <x-jet-validation-errors class="mb-4" />
                 <form method="POST" action="{{ route('register') }}">

@@ -3,15 +3,11 @@
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
-    position: absolute;
-    overflow: hidden;
-    z-index: 10;
-    top: 100px;
+    align-content: center;
 }
 
 .reserved div {
     margin: 10px;
-    width: 80vw;
 }
 
 .reserved a {
@@ -20,7 +16,6 @@
 
 .txton {
     display: flex;
-    height: 80vh;
     justify-content: center;
     align-items: center;
     font-size: 25px;
@@ -30,6 +25,7 @@
 
 .reserved select {
     margin-left: 10px;
+    margin-top: 10px;
     width: 140px;
     height: 40px;
 }
@@ -44,11 +40,6 @@
     border-bottom-left-radius: 8px;
 }
 
-html,
-body {
-    background-image: url('../img/Soccer_Cube_Profile2.png');
-    background-repeat: no-repeat;
-    /* background-size: auto; */
-    /* object-fit: cover; */
-    /* width: 100vw; */
+@media only screen and (max-width: 700px) {
+
 }

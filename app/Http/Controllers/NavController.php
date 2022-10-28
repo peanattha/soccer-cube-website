@@ -176,7 +176,13 @@ class NavController extends Controller
     }
     public function showHome()
     {
-        return view('home');
+        $stadiums = stadium::where('del', null)->get();
+        return view('home',compact('stadiums'));
+    }
+    public function showWellcome()
+    {
+        $stadiums = stadium::where('del', null)->get();
+        return view('welcome',compact('stadiums'));
     }
     public function showStadiums()
     {
